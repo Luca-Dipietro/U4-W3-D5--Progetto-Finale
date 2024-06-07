@@ -51,9 +51,11 @@ public class Application {
 //        Prestito aldoPrestito = new Prestito(ud.getById("08ae4d74-830b-4805-be62-5995c617e8ca"), ed.getById("9780452293281"), LocalDate.of(2024, 6, 1));
 //        Prestito giovanniPrestito = new Prestito(ud.getById("f91c0749-e15c-4a15-8ddb-713b1d7c53f7"), ed.getById("9791952874573"), LocalDate.now());
 //        Prestito giacomoPrestito = new Prestito(ud.getById("64b4d178-62d5-4f47-a0f9-8d78e73221dd"), ed.getById("9791986450040"), LocalDate.of(2024, 5, 25));
+//        Prestito lucaPrestito = new Prestito(ud.getById("243fc8b5-de41-4e8f-a43f-2adeeb7ebf2e"), ed.getById("9780072274462"), LocalDate.of(2024, 2, 18));
 //        pd.save(aldoPrestito);
 //        pd.save(giovanniPrestito);
 //        pd.save(giacomoPrestito);
+//        pd.save(lucaPrestito);
 
         System.out.println("Ricerca per anno di pubblicazione");
         ed.ricercaAnnoPubblicazione(2011).forEach(System.out::println);
@@ -67,6 +69,9 @@ public class Application {
         System.out.println();
         System.out.println("Ricerca elementi in prestito");
         ed.ricercaPerElementiInPrestito(UUID.fromString("08ae4d74-830b-4805-be62-5995c617e8ca")).forEach(System.out::println);
+        System.out.println();
+        System.out.println("Ricerca prestiti scaduti");
+        pd.ricercaPrestitiScaduti().forEach(System.out::println);
 
     }
 }

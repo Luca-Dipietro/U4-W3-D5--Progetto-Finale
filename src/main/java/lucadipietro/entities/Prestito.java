@@ -7,6 +7,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "prestiti")
+@NamedQuery(name = "ricercaPrestitiScaduti", query = "SELECT p FROM Prestito p WHERE p.dataRestituzioneEffettiva IS NULL AND p.dataRestituzionePrevista < CURRENT_DATE")
 public class Prestito {
     @Id
     @GeneratedValue

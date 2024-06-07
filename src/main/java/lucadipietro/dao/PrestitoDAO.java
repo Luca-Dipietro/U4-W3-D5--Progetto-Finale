@@ -2,9 +2,11 @@ package lucadipietro.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 import lucadipietro.entities.Prestito;
 import lucadipietro.exceptions.NotFoundException;
 
+import java.util.List;
 import java.util.UUID;
 
 public class PrestitoDAO {
@@ -28,5 +30,10 @@ public class PrestitoDAO {
         if (prestito == null) throw new NotFoundException(UUID.fromString(id));
         return prestito;
     }
-    
+
+    public List<Prestito> ricercaPrestitiScaduti() {
+        TypedQuery<Prestito> query = em.createNamedQuery("ricercaPrestitiScaduti", Prestito.class);
+        return query.getResultList();
+    }
+
 }

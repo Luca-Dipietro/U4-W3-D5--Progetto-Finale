@@ -51,4 +51,10 @@ public class ElementoCatalogoDAO {
         query.setParameter("autore", autore);
         return query.getResultList();
     }
+
+    public List<ElementoCatalogo> ricercaPerTitolo(String titolo) {
+        TypedQuery<ElementoCatalogo> query = em.createNamedQuery("ricercaTitolo", ElementoCatalogo.class);
+        query.setParameter("titolo", "%" + titolo + "%");
+        return query.getResultList();
+    }
 }

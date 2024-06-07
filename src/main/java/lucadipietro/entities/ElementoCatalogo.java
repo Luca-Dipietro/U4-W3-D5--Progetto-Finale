@@ -9,6 +9,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_elemento")
 @NamedQuery(name = "ricercaAnnoPubblicazione", query = "SELECT eg FROM ElementoCatalogo eg WHERE eg.annoPubblicazione = :anno")
+@NamedQuery(name = "ricercaTitolo", query = "SELECT eg FROM ElementoCatalogo eg WHERE LOWER(eg.titolo) LIKE LOWER(:titolo)")
 public abstract class ElementoCatalogo {
 
     @Id
@@ -62,11 +63,11 @@ public abstract class ElementoCatalogo {
 
     @Override
     public String toString() {
-        return "ElementoCatalogo{" +
-                "isbn=" + isbn +
-                ", titolo='" + titolo + '\'' +
-                ", annoPubblicazione=" + annoPubblicazione +
-                ", numeroPagine=" + numeroPagine +
-                '}';
+        return
+                "isbn = " + isbn +
+                        ", titolo = '" + titolo + '\'' +
+                        ", annoPubblicazione = " + annoPubblicazione +
+                        ", numeroPagine = " + numeroPagine
+                ;
     }
 }

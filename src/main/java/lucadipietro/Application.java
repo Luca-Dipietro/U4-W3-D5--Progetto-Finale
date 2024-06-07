@@ -58,6 +58,10 @@ public class Application {
         System.out.println();
         System.out.println("Ricerca per autore");
         ed.ricercaPerAutore("Jonathon Kub").forEach(System.out::println);
+        System.out.println();
+        System.out.println("Ricerca per titolo");
+        ed.ricercaPerTitolo("That Good Night").forEach(System.out::println);
+        ed.ricercaPerTitolo("Inc").forEach(System.out::println);
 
     }
 }

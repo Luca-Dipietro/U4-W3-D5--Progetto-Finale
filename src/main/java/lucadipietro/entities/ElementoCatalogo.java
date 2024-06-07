@@ -3,7 +3,6 @@ package lucadipietro.entities;
 import jakarta.persistence.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "elementi_catalogo")
@@ -12,8 +11,7 @@ import java.util.UUID;
 public abstract class ElementoCatalogo {
 
     @Id
-    @GeneratedValue
-    private UUID isbn;
+    private String isbn;
     private String titolo;
     @Column(name = "anno_pubblicazione")
     private int annoPubblicazione;
@@ -26,10 +24,15 @@ public abstract class ElementoCatalogo {
     public ElementoCatalogo() {
     }
 
-    public ElementoCatalogo(String titolo, int annoPubblicazione, int numeroPagine) {
+    public ElementoCatalogo(String isbn, String titolo, int annoPubblicazione, int numeroPagine) {
+        this.isbn = isbn;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.numeroPagine = numeroPagine;
+    }
+
+    public String getIsbn() {
+        return isbn;
     }
 
     public String getTitolo() {

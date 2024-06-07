@@ -32,12 +32,12 @@ public class Prestito {
     public Prestito() {
     }
 
-    public Prestito(Utente utente, ElementoCatalogo elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {
+    public Prestito(Utente utente, ElementoCatalogo elementoPrestato, LocalDate dataInizioPrestito) {
         this.utente = utente;
         this.elementoPrestato = elementoPrestato;
         this.dataInizioPrestito = dataInizioPrestito;
         this.dataRestituzionePrevista = dataInizioPrestito.plusDays(30);
-        this.dataRestituzioneEffettiva = dataRestituzioneEffettiva;
+        this.dataRestituzioneEffettiva = null;
     }
 
     public Utente getUtente() {

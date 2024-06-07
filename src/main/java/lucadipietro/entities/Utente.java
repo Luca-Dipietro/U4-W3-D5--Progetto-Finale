@@ -12,6 +12,7 @@ public class Utente {
 
     @Id
     @GeneratedValue
+    @Column(name = "numero_tessera")
     private UUID id;
     private String nome;
     private String cognome;
@@ -28,6 +29,10 @@ public class Utente {
         this.nome = nome;
         this.cognome = cognome;
         this.dataDiNascita = dataDiNascita;
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public String getNome() {

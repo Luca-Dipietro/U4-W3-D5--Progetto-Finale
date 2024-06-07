@@ -46,6 +46,12 @@ public class Application {
 //        ed.save(riv2);
 //        ed.save(riv3);
 
+//        Prestito aldoPrestito = new Prestito(ud.getById("08ae4d74-830b-4805-be62-5995c617e8ca"), ed.getById("9780452293281"), LocalDate.of(2024, 6, 1));
+//        Prestito giovanniPrestito = new Prestito(ud.getById("f91c0749-e15c-4a15-8ddb-713b1d7c53f7"), ed.getById("9791952874573"), LocalDate.now());
+//        Prestito giacomoPrestito = new Prestito(ud.getById("64b4d178-62d5-4f47-a0f9-8d78e73221dd"), ed.getById("9791986450040"), LocalDate.of(2024, 5, 25));
+//        pd.save(aldoPrestito);
+//        pd.save(giovanniPrestito);
+//        pd.save(giacomoPrestito);
 
     }
 }

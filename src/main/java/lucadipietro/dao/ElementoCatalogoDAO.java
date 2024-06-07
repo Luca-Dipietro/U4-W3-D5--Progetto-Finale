@@ -2,8 +2,12 @@ package lucadipietro.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 import lucadipietro.entities.ElementoCatalogo;
+import lucadipietro.entities.Libro;
 import lucadipietro.exceptions.NotFoundException;
+
+import java.util.List;
 
 public class ElementoCatalogoDAO {
     private final EntityManager em;
@@ -34,5 +38,17 @@ public class ElementoCatalogoDAO {
         em.remove(found);
         transaction.commit();
         System.out.println("L'elemento " + found.getTitolo() + " è stato eliminato con successo dal database!");
+    }
+
+    public List<ElementoCatalogo> ricercaAnnoPubblicazione(int anno) {
+        TypedQuery<ElementoCatalogo> query = em.createNamedQuery("ricercaAnnoPubblicazione", ElementoCatalogo.class);
+        query.setParameter("anno", anno);
+        return query.getResultList();
+    }
+
+    public List<Libro> ricercaPerAutore(String autore) {
+        TypedQuery<Libro> query = em.createNamedQuery("ricercaAutore", Libro.class);
+        query.setParameter("autore", autore);
+        return query.getResultList();
     }
 }

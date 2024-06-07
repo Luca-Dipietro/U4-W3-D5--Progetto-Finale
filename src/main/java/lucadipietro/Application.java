@@ -53,5 +53,11 @@ public class Application {
 //        pd.save(giovanniPrestito);
 //        pd.save(giacomoPrestito);
 
+        System.out.println("Ricerca per anno di pubblicazione");
+        ed.ricercaAnnoPubblicazione(2011).forEach(System.out::println);
+        System.out.println();
+        System.out.println("Ricerca per autore");
+        ed.ricercaPerAutore("Jonathon Kub").forEach(System.out::println);
+
     }
 }

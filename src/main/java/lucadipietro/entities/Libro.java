@@ -1,8 +1,10 @@
 package lucadipietro.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name = "ricercaAutore", query = "SELECT li FROM Libro li WHERE li.autore = :autore")
 public class Libro extends ElementoCatalogo {
 
     private String autore;

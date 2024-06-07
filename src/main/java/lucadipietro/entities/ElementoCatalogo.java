@@ -8,6 +8,7 @@ import java.util.List;
 @Table(name = "elementi_catalogo")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_elemento")
+@NamedQuery(name = "ricercaAnnoPubblicazione", query = "SELECT eg FROM ElementoCatalogo eg WHERE eg.annoPubblicazione = :anno")
 public abstract class ElementoCatalogo {
 
     @Id

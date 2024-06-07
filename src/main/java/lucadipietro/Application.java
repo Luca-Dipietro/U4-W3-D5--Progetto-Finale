@@ -8,6 +8,8 @@ import lucadipietro.dao.ElementoCatalogoDAO;
 import lucadipietro.dao.PrestitoDAO;
 import lucadipietro.dao.UtenteDAO;
 
+import java.util.UUID;
+
 public class Application {
 
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("u4w3d5");
@@ -62,6 +64,9 @@ public class Application {
         System.out.println("Ricerca per titolo");
         ed.ricercaPerTitolo("That Good Night").forEach(System.out::println);
         ed.ricercaPerTitolo("Inc").forEach(System.out::println);
+        System.out.println();
+        System.out.println("Ricerca elementi in prestito");
+        ed.ricercaPerElementiInPrestito(UUID.fromString("08ae4d74-830b-4805-be62-5995c617e8ca")).forEach(System.out::println);
 
     }
 }

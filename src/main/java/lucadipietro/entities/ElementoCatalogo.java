@@ -10,6 +10,7 @@ import java.util.List;
 @DiscriminatorColumn(name = "tipo_elemento")
 @NamedQuery(name = "ricercaAnnoPubblicazione", query = "SELECT eg FROM ElementoCatalogo eg WHERE eg.annoPubblicazione = :anno")
 @NamedQuery(name = "ricercaTitolo", query = "SELECT eg FROM ElementoCatalogo eg WHERE LOWER(eg.titolo) LIKE LOWER(:titolo)")
+@NamedQuery(name = "ricercaElementiInPrestito", query = "SELECT eg FROM ElementoCatalogo eg JOIN eg.prestiti p WHERE p.utente.id = :utenteId AND p.dataRestituzioneEffettiva IS NULL")
 public abstract class ElementoCatalogo {
 
     @Id

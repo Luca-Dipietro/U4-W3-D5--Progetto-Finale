@@ -8,6 +8,7 @@ import lucadipietro.entities.Libro;
 import lucadipietro.exceptions.NotFoundException;
 
 import java.util.List;
+import java.util.UUID;
 
 public class ElementoCatalogoDAO {
     private final EntityManager em;
@@ -55,6 +56,12 @@ public class ElementoCatalogoDAO {
     public List<ElementoCatalogo> ricercaPerTitolo(String titolo) {
         TypedQuery<ElementoCatalogo> query = em.createNamedQuery("ricercaTitolo", ElementoCatalogo.class);
         query.setParameter("titolo", "%" + titolo + "%");
+        return query.getResultList();
+    }
+
+    public List<ElementoCatalogo> ricercaPerElementiInPrestito(UUID utenteId) {
+        TypedQuery<ElementoCatalogo> query = em.createNamedQuery("ricercaElementiInPrestito", ElementoCatalogo.class);
+        query.setParameter("utenteId", utenteId);
         return query.getResultList();
     }
 }

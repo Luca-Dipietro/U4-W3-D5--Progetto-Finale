@@ -73,5 +73,7 @@ public class Application {
         System.out.println("Ricerca prestiti scaduti");
         pd.ricercaPrestitiScaduti().forEach(System.out::println);
 
+        em.close();
+        emf.close();
     }
 }
